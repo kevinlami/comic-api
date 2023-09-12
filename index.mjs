@@ -32,6 +32,7 @@ app.get('/verificarPagina', async (req, res) => {
 
     const elementosComClasse = $('.titulo-leitura');
     if (elementosComClasse.length > 0) {
+      res.setHeader('Access-Control-Allow-Origin', 'https://chapter-updater.netlify.app');
       res.status(200).send('A classe CSS "titulo-leitura" existe na página.');
     } else {
       res.status(404).send('A classe CSS "titulo-leitura" não foi encontrada na página.');
