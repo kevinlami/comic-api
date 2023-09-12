@@ -19,7 +19,7 @@ app.get('/verificarPagina', async (req, res) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      res.status(404).send('Página não encontrada.');
+      res.status(404).send('Página não encontrada!');
       return;
     }
 
