@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', async (req, res) => {
-  res.status(404).send('Comic api');
+  res.status(404).send('Comic API');
 });
 
 app.get('/verificarPagina', async (req, res) => {
