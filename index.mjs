@@ -1,18 +1,24 @@
 import cheerio from 'cheerio';
 import express from 'express';
-import fetch from 'node-fetch';// Módulo para fazer requisições HTTP
+import fetch from 'node-fetch';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
+const cors = require('cors');
 app.use(express.static('build'));
+
+app.use(cors({
+  origin: 'https://chapter-updater.netlify.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
 
 app.get('/', async (req, res) => {
   res.status(404).send('Comic api');
 });
 
 app.get('/verificarPagina', async (req, res) => {
-  const url = req.query.url; // URL da página da web a ser verificada
+  const url = req.query.url;
 
   try {
     const response = await fetch(url);
@@ -24,7 +30,6 @@ app.get('/verificarPagina', async (req, res) => {
     const html = await response.text();
     const $ = cheerio.load(html);
 
-    // Verifique se existem elementos com a classe 'titulo-leitura'
     const elementosComClasse = $('.titulo-leitura');
     if (elementosComClasse.length > 0) {
       res.status(200).send('A classe CSS "titulo-leitura" existe na página.');
