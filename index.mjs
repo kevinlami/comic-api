@@ -9,7 +9,7 @@ const port = process.env.PORT || 3001;
 app.use(express.static('build'));
 
 app.use(cors({
-  origin: 'https://chapter-updater.netlify.app',
+  origin: '*',
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
 }));
 
