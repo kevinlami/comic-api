@@ -1,11 +1,11 @@
 import cheerio from 'cheerio';
 import express from 'express';
 import fetch from 'node-fetch';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-const cors = require('cors');
 app.use(express.static('build'));
 
 app.use(cors({
