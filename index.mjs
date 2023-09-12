@@ -6,12 +6,8 @@ import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(express.static('build'));
-
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-}));
+app.use(express.json());
+app.use(cors());
 
 app.get('/', async (req, res) => {
   res.status(404).send('Comic api');
@@ -32,7 +28,6 @@ app.get('/verificarPagina', async (req, res) => {
 
     const elementosComClasse = $('.titulo-leitura');
     if (elementosComClasse.length > 0) {
-      res.setHeader('Access-Control-Allow-Origin', '*');
       res.status(200).send('A classe CSS "titulo-leitura" existe na página.');
     } else {
       res.status(404).send('A classe CSS "titulo-leitura" não foi encontrada na página.');
