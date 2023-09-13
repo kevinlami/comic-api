@@ -6,18 +6,10 @@
             "use": "@vercel/node"
         }
     ],
-    "headers": [
+    "routes": [
         {
-        "source": "/(.*)",
-            "headers": [
-                { "key": "Access-Control-Allow-Origin", "value": "*" }
-            ]
-        },
-        {
-        "source": "/verificarPagina(.*)",
-            "headers": [
-                { "key": "Access-Control-Allow-Origin", "value": "*" }
-            ]
+            "src": "/(.*)",
+            "dest": "/"
         }
     ]
 }
