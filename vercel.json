@@ -8,9 +8,9 @@
     ],
     "headers": [
         {
-        "source": "/(.*)",
+        "source": "(*)",
         "headers": [
-            { "key": "Access-Control-Allow-Origin", "value": "https://chapter-updater.netlify.app" }
+            { "key": "Access-Control-Allow-Origin", "value": "*" }
         ]
         }
     ]
